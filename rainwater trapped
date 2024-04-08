@@ -1,0 +1,34 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        max_height = max(height)
+        building_blocks_volume = sum(height)
+
+        left = 0
+        max_left = 0
+        while height[left] < max_height:
+            if height[left] > max_left:
+                max_left = height[left]
+            
+            height[left] = max_left
+            left += 1
+        
+        right = len(height) - 1
+        max_right = 0
+        while height[right] < max_height:
+            if height[right] > max_right:
+                max_right = height[right]
+            
+            height[right] = max_right
+            right -= 1
+        
+        rainwater_trapped = sum(height[0:left] + height[right + 1:]) + (right - left + 1) * max_height
+        return rainwater_trapped - building_blocks_volume
+
+
+## showing with an example 
+solution = Solution()
+height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+result = solution.trap(height)
+print("Trapped water of rain is: %s units" % result) 
+
+## The output will be 6 units 
