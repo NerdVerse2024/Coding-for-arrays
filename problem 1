@@ -13,3 +13,11 @@ citations = [0, 2, 6, 7, 4]
 result = hIndex(citations)
 ​
 print("The  researcher's h-index is " + str(result))
+
+## The output of the h-index of researcher will be 3
+## Concept: Here if the researcher has papers published and the list of numbers in the array are the respective number of citations for each published paper. 
+There is a function in Python that sorts the list in ascending order and finds out the largest number amongst them, 
+which is the h-index considering the conditions that the 'hth' paper has at least 'h' number of citations. 
+For example,  if the number at index, i (0th position) in the sorted list is larger than or equal to n - i, 
+where n is the total number of papers, then n - i represents the h-index.  
+This is because at least n-i papers have n-i or more citations.
